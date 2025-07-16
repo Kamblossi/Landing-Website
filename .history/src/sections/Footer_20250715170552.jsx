@@ -135,7 +135,7 @@ const Footer = () => {
           data-scroll-speed="2"
         />
         <h3 data-scroll data-scroll-speed="-1">
-          Visual Vortex Studio
+          Wibe Studio
         </h3>
       </LogoContainer>
       <FooterComponent
@@ -161,7 +161,7 @@ const Footer = () => {
           </li>
           <li>
             <a href="https://google.com" target={"_blank"} rel="noreferrer">
-              Book with Us
+              look book
             </a>
           </li>
           <li>
@@ -176,7 +176,7 @@ const Footer = () => {
             data-scroll-speed="2"
             data-scroll-direction="horizontal"
           >
-            &copy; 2025. All Rights Reserved.
+            &copy; 2022. All Rights Reserved.
           </span>
           <span
             data-scroll
@@ -189,7 +189,7 @@ const Footer = () => {
               target={"_blank"}
               rel="dofollow noreferrer"
             >
-              Prism Tech
+              CodeBucks
             </a>
           </span>
         </Bottom>

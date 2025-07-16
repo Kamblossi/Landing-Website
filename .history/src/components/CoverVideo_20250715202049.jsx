@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import MainVideo from "../assets/Walking Girl.mp4";
@@ -41,26 +41,29 @@ const Title = styled(motion.div)`
   z-index: 5;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* This is causing the words to stack vertically */
   justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.text};
 
-  /* Target the direct div children of Title (which are your "Visual" and "Vortex" containers) */
-  & > div { /* This targets the divs that contain the H1s (Visual and Vortex) */
-    display: flex; /* Keeps the letters within each word horizontal */
-    flex-direction: row; /* Ensures letters are in a row */
-    /* Add margin-bottom to the "Visual" div to control the space below it */
-    &:first-of-type { /* This specifically targets the first div child (your "Visual" container) */
-      margin-bottom: -6rem; /* Example: Move it up by 2rem. Adjust this value! */
-      /* You might need to make this a negative margin to reduce the gap */
-    }
+  /* Apply flex to the direct div children if you want "Visual" and "Vortex" to be on the same line.
+     If you want them stacked vertically (as per your screenshot), leave this out or
+     ensure your inner divs are block elements or flex items of a column container.
+     Given the screenshot, the default styling for `Title`'s `div` children is likely
+     allowing them to break lines. If you intend for "Visual" and "Vortex" to be on
+     separate lines, the current `Title`'s `flex-direction: column` correctly handles
+     the stacking of the two `motion.div`s. */
+  /* If you want "Visual" and "Vortex" side-by-side after the "pull together":
+  & > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; // Allows wrapping on smaller screens
   }
+  */
 
   h1 {
     font-family: "Kaushan Script";
     font-size: ${(props) => props.theme.fontBig};
-
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
     @media (max-width: 30em) {
@@ -73,7 +76,6 @@ const Title = styled(motion.div)`
     font-weight: 500;
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
     margin: 0 auto;
-
     text-transform: capitalize;
 
     @media (max-width: 30em) {
@@ -83,34 +85,86 @@ const Title = styled(motion.div)`
   }
 `;
 
+// Framer Motion Animation Variants
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 5, // 2
-      staggerChildren: 0.3,
+      delayChildren: 5, // Overall delay before children start animating
+      staggerChildren: 0.3, // Stagger between direct children of Title (the "Visual" div, "Vortex" div, and h2)
     },
   },
 };
 
 const item = {
   hidden: { opacity: 0 },
-  show: { opacity: 1 },
+  show: { opacity: 1 }, // Simple fade-in for individual letters
 };
 
 const CoverVideo = () => {
+  // Initialize controls for the "Visual" and "Vortex" div wrappers
+  const visualDivControls = useAnimation();
+  const vortexDivControls = useAnimation();
+
+  // Define the "pull together" animation
+  const pullTogetherAnimation = async () => {
+    // We use Promise.all to animate them concurrently for a simultaneous "squeeze" effect.
+    await Promise.all([
+      // Animate "Vortex" upwards
+      vortexDivControls.start({
+        y: "-50px", // Move Vortex up. Adjust this value to control the final gap.
+        transition: {
+          type: "spring",
+          stiffness: 150, // Adjust stiffness for how "strong" the spring is
+          damping: 10, // Adjust damping for how quickly it settles and the amount of bounce
+          mass: 0.8, // Adjust mass for inertia
+          restDelta: 0.001, // Small value to ensure it settles precisely
+        },
+      }),
+      // Animate "Visual" downwards slightly (optional, can be 0 or smaller value)
+      visualDivControls.start({
+        y: "50px", // Move Visual down. Adjust this value.
+        transition: {
+          type: "spring",
+          stiffness: 150,
+          damping: 10,
+          mass: 0.8,
+          restDelta: 0.001,
+        },
+      }),
+    ]);
+  };
+
+  useEffect(() => {
+    // Calculate the delay for triggering the "pull together" animation.
+    // This should be AFTER the initial reveal of "Visual Vortex" is complete.
+    // Base delay: Title's delayChildren (5s)
+    // Plus stagger for the two word divs (2 * 0.3s = 0.6s)
+    // Plus a buffer for the internal letter fade-in + extra pause.
+    const totalInitialAnimationTimeMs = 5000 + (2 * 300) + 700; // 5s + 0.6s + 0.7s (buffer) = 6300ms
+
+    const timer = setTimeout(() => {
+      pullTogetherAnimation();
+    }, totalInitialAnimationTimeMs);
+
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  }, []); // Run this effect only once on component mount
+
   return (
     <VideoContainer data-scroll>
       <DarkOverlay />
 
       <Title variants={container} initial="hidden" animate="show">
-        {/* New div for "Visual" */}
-        <div style={{ marginRight: '2rem' }}> {/* This style remains for horizontal spacing between words if on same line */}
+        {/* Changed to motion.div and added animate prop with controls.
+            Removed variants={item} from these parent divs as they are now
+            imperatively controlled for the "pull together" animation.
+            Their initial appearance is still affected by Title's staggerChildren. */}
+        <motion.div animate={visualDivControls} style={{ marginRight: "2rem" }}>
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.45" // Start with a higher delay
+            data-scroll-delay="0.45"
             data-scroll-speed="4"
           >
             V
@@ -118,7 +172,7 @@ const CoverVideo = () => {
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.42" // Decreasing increment (e.g., by 0.03s)
+            data-scroll-delay="0.42"
             data-scroll-speed="4"
           >
             i
@@ -155,14 +209,14 @@ const CoverVideo = () => {
           >
             l
           </motion.h1>
-        </div>
+        </motion.div>
 
-        {/* New div for "Vortex" */}
-        <div>
+        {/* Changed to motion.div and added animate prop with controls */}
+        <motion.div animate={vortexDivControls}>
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.27" // Continue decreasing
+            data-scroll-delay="0.27"
             data-scroll-speed="4"
           >
             V
@@ -207,9 +261,8 @@ const CoverVideo = () => {
           >
             x
           </motion.h1>
-        </div>
+        </motion.div>
 
-        {/* The h2 tagline remains the same */}
         <motion.h2
           style={{ alignSelf: "flex-end" }}
           variants={item}
@@ -217,7 +270,7 @@ const CoverVideo = () => {
           data-scroll-delay="0.04"
           data-scroll-speed="2"
         >
-          Capture ▪ Craft ▪ Convey
+          inspire. create. belive
         </motion.h2>
       </Title>
 

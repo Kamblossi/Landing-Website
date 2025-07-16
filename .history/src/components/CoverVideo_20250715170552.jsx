@@ -46,15 +46,9 @@ const Title = styled(motion.div)`
   align-items: center;
   color: ${(props) => props.theme.text};
 
-  /* Target the direct div children of Title (which are your "Visual" and "Vortex" containers) */
-  & > div { /* This targets the divs that contain the H1s (Visual and Vortex) */
-    display: flex; /* Keeps the letters within each word horizontal */
-    flex-direction: row; /* Ensures letters are in a row */
-    /* Add margin-bottom to the "Visual" div to control the space below it */
-    &:first-of-type { /* This specifically targets the first div child (your "Visual" container) */
-      margin-bottom: -6rem; /* Example: Move it up by 2rem. Adjust this value! */
-      /* You might need to make this a negative margin to reduce the gap */
-    }
+  div {
+    display: flex;
+    flex-direction: row;
   }
 
   h1 {
@@ -64,6 +58,7 @@ const Title = styled(motion.div)`
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
     @media (max-width: 30em) {
+      /* font-size: ${(props) => props.theme.fontxxxl}; */
       font-size: calc(5rem + 8vw);
     }
   }
@@ -78,6 +73,7 @@ const Title = styled(motion.div)`
 
     @media (max-width: 30em) {
       font-size: ${(props) => props.theme.fontmd};
+      /* font-size: calc(5rem + 8vw); */
       margin-top: -1.5rem;
     }
   }
@@ -105,20 +101,19 @@ const CoverVideo = () => {
       <DarkOverlay />
 
       <Title variants={container} initial="hidden" animate="show">
-        {/* New div for "Visual" */}
-        <div style={{ marginRight: '2rem' }}> {/* This style remains for horizontal spacing between words if on same line */}
+        <div>
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.45" // Start with a higher delay
+            data-scroll-delay="0.13"
             data-scroll-speed="4"
           >
-            V
+            W
           </motion.h1>
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.42" // Decreasing increment (e.g., by 0.03s)
+            data-scroll-delay="0.09"
             data-scroll-speed="4"
           >
             i
@@ -126,90 +121,20 @@ const CoverVideo = () => {
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.39"
+            data-scroll-delay="0.06"
             data-scroll-speed="4"
           >
-            s
+            b
           </motion.h1>
           <motion.h1
             variants={item}
             data-scroll
-            data-scroll-delay="0.36"
-            data-scroll-speed="4"
-          >
-            u
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.33"
-            data-scroll-speed="4"
-          >
-            a
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.30"
-            data-scroll-speed="4"
-          >
-            l
-          </motion.h1>
-        </div>
-
-        {/* New div for "Vortex" */}
-        <div>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.27" // Continue decreasing
-            data-scroll-speed="4"
-          >
-            V
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.24"
-            data-scroll-speed="4"
-          >
-            o
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.21"
-            data-scroll-speed="4"
-          >
-            r
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.18"
-            data-scroll-speed="4"
-          >
-            t
-          </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.15"
+            data-scroll-delay="0.04"
             data-scroll-speed="4"
           >
             e
           </motion.h1>
-          <motion.h1
-            variants={item}
-            data-scroll
-            data-scroll-delay="0.12"
-            data-scroll-speed="4"
-          >
-            x
-          </motion.h1>
         </div>
-
-        {/* The h2 tagline remains the same */}
         <motion.h2
           style={{ alignSelf: "flex-end" }}
           variants={item}
@@ -217,7 +142,7 @@ const CoverVideo = () => {
           data-scroll-delay="0.04"
           data-scroll-speed="2"
         >
-          Capture ▪ Craft ▪ Convey
+          inspire. create. belive
         </motion.h2>
       </Title>
 

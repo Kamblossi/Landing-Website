@@ -144,18 +144,20 @@ const About = () => {
         About Us
       </Title>
       <Left data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
-        At Visual Vortex Studio, we believe every moment holds a story waiting to be told. Based in the
-        heart of Ireland, we are a passionate team of visual storytellers dedicated to
-        transforming fleeting instances into timeless narratives.
+        We&apos;re fashion studio based in california. We create unique designs
+        that will blow your mind. We also design unique jewellary pieces.
+        Fashion is an ART that can not be grasped by everyone.
         <br />
         <br />
-        From the quiet intimacy of individual portraits to the grand scale of corporate campaigns and
-        vibrant event videography, our lens is focused on capturing the essence of your
-        journey. We blend artistic vision with technical precision to craft imagery
-        that resonates, communicates, and endures. Whether it's preserving cherished
-        family memories, elevating your brand's presence, or documenting an
-        unforgettable event, we're here to ensure your unique story is not just seen,
-        but felt. Let us bring your vision to life.
+        We are very dedicated to making our products. We offer unique and
+        creative products to a wide range of people. We have a variety of
+        styles, but for most people, all of the options are in the box. We
+        specialize in making things that make you happy.
+        <br />
+        <br />
+        We strive to build on our vision. As a fashion label, we do our best to
+        create amazing experiences for all people. We are always looking to make
+        something that is easy for everyone.
       </Left>
 
       <Right>

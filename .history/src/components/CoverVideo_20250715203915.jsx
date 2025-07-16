@@ -52,7 +52,7 @@ const Title = styled(motion.div)`
     flex-direction: row; /* Ensures letters are in a row */
     /* Add margin-bottom to the "Visual" div to control the space below it */
     &:first-of-type { /* This specifically targets the first div child (your "Visual" container) */
-      margin-bottom: -6rem; /* Example: Move it up by 2rem. Adjust this value! */
+      margin-bottom: -2rem; /* Example: Move it up by 2rem. Adjust this value! */
       /* You might need to make this a negative margin to reduce the gap */
     }
   }
@@ -217,7 +217,7 @@ const CoverVideo = () => {
           data-scroll-delay="0.04"
           data-scroll-speed="2"
         >
-          Capture ▪ Craft ▪ Convey
+          inspire. create. belive
         </motion.h2>
       </Title>
 

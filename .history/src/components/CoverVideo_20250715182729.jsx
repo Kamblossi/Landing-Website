@@ -46,15 +46,9 @@ const Title = styled(motion.div)`
   align-items: center;
   color: ${(props) => props.theme.text};
 
-  /* Target the direct div children of Title (which are your "Visual" and "Vortex" containers) */
-  & > div { /* This targets the divs that contain the H1s (Visual and Vortex) */
-    display: flex; /* Keeps the letters within each word horizontal */
-    flex-direction: row; /* Ensures letters are in a row */
-    /* Add margin-bottom to the "Visual" div to control the space below it */
-    &:first-of-type { /* This specifically targets the first div child (your "Visual" container) */
-      margin-bottom: -6rem; /* Example: Move it up by 2rem. Adjust this value! */
-      /* You might need to make this a negative margin to reduce the gap */
-    }
+  div {
+    display: flex;
+    flex-direction: row;
   }
 
   h1 {
@@ -64,6 +58,7 @@ const Title = styled(motion.div)`
     text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
     @media (max-width: 30em) {
+      /* font-size: ${(props) => props.theme.fontxxxl}; */
       font-size: calc(5rem + 8vw);
     }
   }
@@ -78,6 +73,7 @@ const Title = styled(motion.div)`
 
     @media (max-width: 30em) {
       font-size: ${(props) => props.theme.fontmd};
+      /* font-size: calc(5rem + 8vw); */
       margin-top: -1.5rem;
     }
   }
@@ -106,7 +102,7 @@ const CoverVideo = () => {
 
       <Title variants={container} initial="hidden" animate="show">
         {/* New div for "Visual" */}
-        <div style={{ marginRight: '2rem' }}> {/* This style remains for horizontal spacing between words if on same line */}
+        <div style={{ marginRight: '2rem' }}> {/* Add margin to separate words if desired */}
           <motion.h1
             variants={item}
             data-scroll
@@ -214,10 +210,10 @@ const CoverVideo = () => {
           style={{ alignSelf: "flex-end" }}
           variants={item}
           data-scroll
-          data-scroll-delay="0.04"
+          data-scroll-delay="0.04" // You can keep this or adjust if needed
           data-scroll-speed="2"
         >
-          Capture ▪ Craft ▪ Convey
+          inspire. create. belive
         </motion.h2>
       </Title>
 

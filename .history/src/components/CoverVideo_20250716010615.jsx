@@ -217,7 +217,7 @@ const CoverVideo = () => {
           data-scroll-delay="0.04"
           data-scroll-speed="2"
         >
-          Capture ▪ Craft ▪ Convey
+          Capture • Craft • Convey
         </motion.h2>
       </Title>
 

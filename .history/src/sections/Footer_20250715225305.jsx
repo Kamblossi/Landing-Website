@@ -189,7 +189,7 @@ const Footer = () => {
               target={"_blank"}
               rel="dofollow noreferrer"
             >
-              Prism Tech
+              Newton Ochieng
             </a>
           </span>
         </Bottom>
