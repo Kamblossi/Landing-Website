@@ -222,12 +222,12 @@ const Shop = () => {
         <Product img={img4} title="Amadi's Wedding Day" />
         <Product img={img1} title="The O'Connell Family Legacy" />
         <Product img={img2} title="Emerald Isle Landscapes" />
-        <Product img={img5} title="Cafe Bistro Restaurant Launch" />
-        <Product img={img6} title="Women in Tech Summit" />
-        <Product img={img7} title="Sarah's Graduation Journey" />
-        <Product img={img8} title="The Dublin Marathon Spirit" />
-        <Product img={img9} title="Innovate Ireland Campaign" />
-        <Product img={img10} title="Burna Boy's Concert in Dublin" />
+        <Product img={img5} title="Cafe Bistro Rest" />
+        <Product img={img6} title="Suits" />
+        <Product img={img7} title="Antiques" />
+        <Product img={img8} title="Jewellery" />
+        <Product img={img9} title="Watches" />
+        <Product img={img10} title="Special Edition" />
       </Right>
     </Section>
   );

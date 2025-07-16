@@ -224,10 +224,10 @@ const Shop = () => {
         <Product img={img2} title="Emerald Isle Landscapes" />
         <Product img={img5} title="Cafe Bistro Restaurant Launch" />
         <Product img={img6} title="Women in Tech Summit" />
-        <Product img={img7} title="Sarah's Graduation Journey" />
-        <Product img={img8} title="The Dublin Marathon Spirit" />
-        <Product img={img9} title="Innovate Ireland Campaign" />
-        <Product img={img10} title="Burna Boy's Concert in Dublin" />
+        <Product img={img7} title="Antiques" />
+        <Product img={img8} title="Jewellery" />
+        <Product img={img9} title="Watches" />
+        <Product img={img10} title="Special Edition" />
       </Right>
     </Section>
   );

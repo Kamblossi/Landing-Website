@@ -227,7 +227,7 @@ const Shop = () => {
         <Product img={img7} title="Sarah's Graduation Journey" />
         <Product img={img8} title="The Dublin Marathon Spirit" />
         <Product img={img9} title="Innovate Ireland Campaign" />
-        <Product img={img10} title="Burna Boy's Concert in Dublin" />
+        <Product img={img10} title="The Ochieng's Transformation" />
       </Right>
     </Section>
   );

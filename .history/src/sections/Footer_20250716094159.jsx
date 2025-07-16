@@ -166,7 +166,7 @@ const Footer = () => {
           </li>
           <li>
             <a href="https://google.com" target={"_blank"} rel="noreferrer">
-              Testimonials
+              Tes
             </a>
           </li>
         </ul>
