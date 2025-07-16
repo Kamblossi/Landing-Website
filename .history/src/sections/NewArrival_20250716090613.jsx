@@ -93,6 +93,7 @@ const Title = styled(motion.h1)`
   }
 `;
 
+// NEW STYLED COMPONENT FOR LEFT-SIDE TEXT
 const LeftText = styled.div`
   width: 20%; /* Same width as the right text for consistency */
   font-size: ${(props) => props.theme.fontlg};
@@ -216,14 +217,15 @@ const NewArrival = () => {
         Our Services
       </Title>
 
+      {/* NEW LEFT-SIDE TEXT CONTENT */}
       <LeftText data-scroll data-scroll-speed="-4">
-        Personal & Family Stories:<br />
-        Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones.<br />
-        Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters.
+        [cite_start]Personal & Family Stories: [cite: 1]<br />
+        [cite_start]Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones. [cite: 1]<br />
+        [cite_start]Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters. [cite: 1]
         <br /><br />
-        Event Narratives:<br />
-        Covers: Weddings, concerts, corporate events, parties, celebrations.<br />
-        Storytelling Angle: Documenting the unfolding drama, joy, and key moments of significant occasions.
+        [cite_start]Event Narratives: [cite: 1]<br />
+        [cite_start]Covers: Weddings, concerts, corporate events, parties, celebrations. [cite: 1]<br />
+        [cite_start]Storytelling Angle: Documenting the unfolding drama, joy, and key moments of significant occasions. [cite: 1]
       </LeftText>
 
       <Container ref={ScrollingRef}>
@@ -233,14 +235,15 @@ const NewArrival = () => {
         <Photos img={img4} name="Specialized Visual Journeys" />
       </Container>
 
+      {/* EXISTING RIGHT-SIDE TEXT CONTENT */}
       <Text data-scroll data-scroll-speed="-4">
-        Brand & Commercial Tales:<br />
-        Covers: Product photography, corporate photography (staff, premises), real estate, campaigns, advertisements.<br />
-        Storytelling Angle: Building compelling brand identities and showcasing offerings through visual narratives.
+        [cite_start]Brand & Commercial Tales: [cite: 1]<br />
+        [cite_start]Covers: Product photography, corporate photography (staff, premises), real estate, campaigns, advertisements. [cite: 1]<br />
+        [cite_start]Storytelling Angle: Building compelling brand identities and showcasing offerings through visual narratives. [cite: 1]
         <br /><br />
-        Specialized Visual Journeys:<br />
-        Covers: Outdoor/scenery, specific artistic projects, unique indoor spaces, and potentially videography if you want to keep it as a distinct sub-category here.<br />
-        Storytelling Angle: Exploring unique themes, environments, or complex visual projects that tell a specific, often immersive, story.
+        [cite_start]Specialized Visual Journeys: [cite: 1]<br />
+        [cite_start]Covers: Outdoor/scenery, specific artistic projects, unique indoor spaces, and potentially videography if you want to keep it as a distinct sub-category here. [cite: 1]<br />
+        [cite_start]Storytelling Angle: Exploring unique themes, environments, or complex visual projects that tell a specific, often immersive, story. [cite: 1]
       </Text>
     </Section>
   );

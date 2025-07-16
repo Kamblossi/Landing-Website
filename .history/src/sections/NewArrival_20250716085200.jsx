@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, {  useLayoutEffect, useRef } from 'react';
+import React, {  useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import img1 from '../assets/Images/11.webp';
@@ -15,9 +15,11 @@ const Section = styled.section`
   width: 100%;
   margin: 0 auto;
   /* height: 300vh; */
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   position: relative;
   /* background-color: ${(props) => props.theme.text}; */
 `;
@@ -31,22 +33,29 @@ const Overlay = styled.div`
   height: 90vh;
   box-shadow: 0 0 0 5vw ${(props) => props.theme.text};
   border: 3px solid black;
+
   z-index: 11;
+
   @media (max-width: 70em) {
-    width: 40vw;
+  width: 40vw;
+
     height: 80vh;
   }
+
   @media (max-width: 64em) {
-    width: 50vw;
-    box-shadow: 0 0 0 60vw ${(props) => props.theme.text};
+  width: 50vw;
+  box-shadow: 0 0 0 60vw ${(props) => props.theme.text};
+
     height: 80vh;
   }
   @media (max-width: 48em) {
-    width: 60vw;
+  width: 60vw;
+
     height: 80vh;
   }
   @media (max-width: 30em) {
-    width: 80vw;
+  width: 80vw;
+
     height: 60vh;
   }
 `;
@@ -59,18 +68,24 @@ const Container = styled.div`
   width: 25vw;
   height: auto;
   /* background-color: yellow; */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media (max-width: 64em) {
-    width: 30vw;
+  width: 30vw;
+
+
   }
   @media (max-width: 48em) {
-    width: 40vw;
+  width: 40vw;
+
   }
   @media (max-width: 30em) {
-    width: 60vw;
+  width: 60vw;
+
   }
 `;
 
@@ -81,50 +96,37 @@ const Title = styled(motion.h1)`
   /* text-transform: capitalize; */
   color: ${(props) => props.theme.body};
   text-shadow: 1px 1px 1px ${(props) => props.theme.text};
+
   position: absolute;
   top: 2rem;
   left: 1rem;
   z-index: 15;
+
   @media (max-width: 64em) {
     font-size: ${(props) => props.theme.fontxxl};
+
+
   }
   @media (max-width: 48em) {
     font-size: ${(props) => props.theme.fontxl};
+  
   }
 `;
-
-const LeftText = styled.div`
-  width: 20%; /* Same width as the right text for consistency */
-  font-size: ${(props) => props.theme.fontlg};
-  font-weight: 300;
-  position: absolute;
-  padding: 2rem;
-  top: 10rem; /* Adjusted to be below the main title */
-  left: 1rem; /* Aligned with the main title's left */
-  z-index: 11; /* Same z-index as the right text */
-
-  @media (max-width: 64em) {
-    top: 8rem; /* Adjust for smaller desktop/tablet screens */
-    font-size: ${(props) => props.theme.fontmd};
-  }
-  @media (max-width: 48em) {
-    display: none; /* Hide on small screens, same as the right Text */
-  }
-`;
-
-
-const Text = styled.div` /* This is now specifically for the RIGHT-SIDE text */
+const Text = styled.div`
   width: 20%;
   font-size: ${(props) => props.theme.fontlg};
   font-weight: 300;
   position: absolute;
   padding: 2rem;
-  top: 0; /* Keep it at top right or adjust if needed for vertical balance */
+  top: 0;
   right: 0;
   z-index: 11;
+
   @media (max-width: 48em) {
     display: none;
+  
   }
+ 
 `;
 
 const Item = styled.div`
@@ -133,15 +135,16 @@ const Item = styled.div`
   justify-content: center;
   align-items: center;
   margin: 5rem 0;
+
   h2 {
   }
+
   img {
     width: 100%;
     height: auto;
     z-index: 5;
   }
 `;
-
 const Photos = ({ img, name }) => {
   return (
     <Item>
@@ -152,15 +155,17 @@ const Photos = ({ img, name }) => {
 };
 
 const NewArrival = () => {
-  gsap.registerPlugin(ScrollTrigger);
+   gsap.registerPlugin(ScrollTrigger);
   const ref = useRef(null);
+
   const ScrollingRef = useRef(null);
+
 
   useLayoutEffect(() => {
     let element = ref.current;
-    let scrollingElement = ScrollingRef.current;
-    let t1 = gsap.timeline();
 
+    let scrollingElement = ScrollingRef.current;
+let t1= gsap.timeline();
     setTimeout(() => {
       let mainHeight = scrollingElement.scrollHeight;
       element.style.height = `calc(${mainHeight / 4}px)`;
@@ -195,6 +200,7 @@ const NewArrival = () => {
           },
         },
       );
+
       ScrollTrigger.refresh();
     }, 1000);
     ScrollTrigger.refresh();
@@ -206,41 +212,34 @@ const NewArrival = () => {
   }, []);
 
   return (
-    <Section ref={ref} id="fixed-target" className="new-arrival">
+    <Section  ref={ref} id="fixed-target" className="new-arrival">
       <Overlay />
+
       <Title
-        data-scroll
-        data-scroll-speed="-2"
-        data-scroll-direction="horizontal"
+        data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal"
       >
         Our Services
       </Title>
 
-      <LeftText data-scroll data-scroll-speed="-4">
-        Personal & Family Stories:<br />
-        Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones.<br />
-        Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters.
-        <br /><br />
-        Event Narratives:<br />
-        Covers: Weddings, concerts, corporate events, parties, celebrations.<br />
-        Storytelling Angle: Documenting the unfolding drama, joy, and key moments of significant occasions.
-      </LeftText>
-
       <Container ref={ScrollingRef}>
-        <Photos img={img1} name="Personal & Family Stories" />
-        <Photos img={img2} name="Event Narratives" />
-        <Photos img={img3} name="Brand & Commercial Tales" />
-        <Photos img={img4} name="Specialized Visual Journeys" />
+        <Photos img={img1} name="Denim" />
+        <Photos img={img2} name="Cool Dresses" />
+        <Photos img={img3} name="Jackets" />
+        <Photos img={img4} name="T-shirts" />
       </Container>
 
       <Text data-scroll data-scroll-speed="-4">
-        Brand & Commercial Tales:<br />
-        Covers: Product photography, corporate photography (staff, premises), real estate, campaigns, advertisements.<br />
-        Storytelling Angle: Building compelling brand identities and showcasing offerings through visual narratives.
-        <br /><br />
-        Specialized Visual Journeys:<br />
-        Covers: Outdoor/scenery, specific artistic projects, unique indoor spaces, and potentially videography if you want to keep it as a distinct sub-category here.<br />
-        Storytelling Angle: Exploring unique themes, environments, or complex visual projects that tell a specific, often immersive, story.
+        There is new collection available for cool clothes in all sizes. This collection
+        is a great way to find a new look for you. It offers a variety of cool apparel
+        styles to fit your taste, while you can also find some cool clothes that you can
+        wear everyday.
+        <br />
+        <br />
+        The first line of clothing you will see on this collection is for men. The
+        collection also includes three new styles for women.
+        <br />
+        <br />
+        Give it a try and experience a new look.
       </Text>
     </Section>
   );

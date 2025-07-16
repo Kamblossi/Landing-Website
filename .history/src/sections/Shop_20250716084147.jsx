@@ -40,9 +40,9 @@ const Title = styled.h1`
   text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
   position: absolute;
-  top: 1rem; /* The main title position */
+  top: 1rem;
   left: 5%;
-  z-index: 11; /* Ensures it's on top */
+  z-index: 11;
 
   @media (max-width: 64em) {
     font-size: ${(props) => props.theme.fontxxl};
@@ -58,9 +58,9 @@ const Left = styled.div`
   color: ${(props) => props.theme.text};
 
   min-height: 100vh;
-  z-index: 10; /* Slightly lower than title, but fixed position */
+  z-index: 10;
 
-  position: fixed; /* This makes the text content stay on the left as you scroll */
+  position: fixed;
   left: 0;
   display: flex;
   justify-content: center;
@@ -71,13 +71,11 @@ const Left = styled.div`
     font-weight: 300;
     width: 80%;
     margin: 0 auto;
-    padding-top: 5rem; /* <<<--- ADDED THIS LINE */
   }
 
   @media (max-width: 64em) {
     p {
       font-size: ${(props) => props.theme.fontmd};
-      padding-top: 2rem; /* Adjust for smaller screens if needed */
     }
   }
 
@@ -85,13 +83,11 @@ const Left = styled.div`
     width: 40%;
     p {
       font-size: ${(props) => props.theme.fontsm};
-      padding-top: 1rem; /* Further adjustment for smaller screens */
     }
   }
   @media (max-width: 30em) {
     p {
       font-size: ${(props) => props.theme.fontxs};
-      padding-top: 0.5rem; /* And for very small screens */
     }
   }
 `;
@@ -208,13 +204,15 @@ const Shop = () => {
           Every project begins with understanding your unique narrative. 
           Our process starts with a collaborative consultation, where we listen intently 
           to your vision, explore your ideas, and identify the core story you wish to tell. 
-          <br /> <br />
           We delve into the emotions, messages, and moments that matter most to you, ensuring 
           our creative direction perfectly aligns with your aspirations, whether it's for a 
           personal milestone, a significant event, or a powerful brand campaign.
           <br /> <br />
-          We meticulously plan and execute your shoot with a storytelling mindset, 
-          focusing on authentic expressions and compelling compositions. 
+          From this foundation, we meticulously plan and execute your shoot with a storytelling mindset, 
+          focusing on authentic expressions and compelling compositions. The final delivery presents you 
+          with a collection of high-quality visuals, carefully 
+          curated to tell your distinct story in a way that resonates deeply and leaves a lasting 
+          impression.
         </p>
       </Left>
       <Right data-scroll ref={Horizontalref}>

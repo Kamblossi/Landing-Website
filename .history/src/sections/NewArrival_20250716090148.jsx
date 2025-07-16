@@ -1,20 +1,27 @@
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, {  useLayoutEffect, useRef } from 'react';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import React, { useLayoutEffect, useRef } from "react";
+import styled from "styled-components";
 
-import img1 from '../assets/Images/11.webp';
-import img2 from '../assets/Images/12.webp';
-import img3 from '../assets/Images/13.webp';
-import img4 from '../assets/Images/14.webp';
+import img1 from "../assets/Images/11.webp";
+import img2 from "../assets/Images/12.webp";
+import img3 from "../assets/Images/13.webp";
+import img4 from "../assets/Images/14.webp";
+// These imports are from previous versions of the code and not used in the current NewArrival component for images:
+// import img5 from "../assets/Images/5.webp";
+// import img6 from "../assets/Images/6.webp";
+// import img7 from "../assets/Images/7.webp";
+// import img8 from "../assets/Images/8.webp";
+// import img9 from "../assets/Images/9.webp";
+// import img10 from "../assets/Images/10.webp";
 
-const Section = styled.section`
+const Section = styled(motion.section)`
   min-height: 100vh;
   /* height: auto; */
   width: 100%;
   margin: 0 auto;
-  /* height: 300vh; */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +83,7 @@ const Container = styled.div`
 
 const Title = styled(motion.h1)`
   font-size: ${(props) => props.theme.fontxxxl};
-  font-family: 'Kaushan Script';
+  font-family: "Kaushan Script";
   font-weight: 300;
   /* text-transform: capitalize; */
   color: ${(props) => props.theme.body};
@@ -93,33 +100,13 @@ const Title = styled(motion.h1)`
   }
 `;
 
-const LeftText = styled.div`
-  width: 20%; /* Same width as the right text for consistency */
-  font-size: ${(props) => props.theme.fontlg};
-  font-weight: 300;
-  position: absolute;
-  padding: 2rem;
-  top: 10rem; /* Adjusted to be below the main title */
-  left: 1rem; /* Aligned with the main title's left */
-  z-index: 11; /* Same z-index as the right text */
-
-  @media (max-width: 64em) {
-    top: 8rem; /* Adjust for smaller desktop/tablet screens */
-    font-size: ${(props) => props.theme.fontmd};
-  }
-  @media (max-width: 48em) {
-    display: none; /* Hide on small screens, same as the right Text */
-  }
-`;
-
-
-const Text = styled.div` /* This is now specifically for the RIGHT-SIDE text */
+const Text = styled.div`
   width: 20%;
   font-size: ${(props) => props.theme.fontlg};
   font-weight: 300;
   position: absolute;
   padding: 2rem;
-  top: 0; /* Keep it at top right or adjust if needed for vertical balance */
+  top: 0;
   right: 0;
   z-index: 11;
   @media (max-width: 48em) {
@@ -163,40 +150,40 @@ const NewArrival = () => {
 
     setTimeout(() => {
       let mainHeight = scrollingElement.scrollHeight;
-      element.style.height = `calc(${mainHeight / 4}px)`;
+      element.style.height = `calc(${mainHeight / 4}px)`; // This calculation sets the section height dynamically
       t1.to(element, {
         scrollTrigger: {
           trigger: element,
-          start: 'top top',
-          end: 'bottom+=100% top-=100%',
-          scroller: '.App', //locomotive-scroll
+          start: "top top",
+          end: "bottom+=100% top-=100%",
+          scroller: ".App", //locomotive-scroll
           scrub: 1,
           pin: true,
           // markers: true,
         },
-        ease: 'none',
+        ease: "none",
       });
 
       t1.fromTo(
         scrollingElement,
         {
-          y: '0',
+          y: "0",
         },
         {
-          y: '-100%',
+          y: "-100%",
           scrollTrigger: {
             // id: `section-${index + 1}`,
             trigger: scrollingElement,
-            start: 'top top',
-            end: 'bottom top',
-            scroller: '.App',
+            start: "top top",
+            end: "bottom top",
+            scroller: ".App",
             scrub: 1,
             // markers: true,
           },
         },
       );
       ScrollTrigger.refresh();
-    }, 1000);
+    }, 1000); // Small delay to ensure measurements are correct
     ScrollTrigger.refresh();
 
     return () => {
@@ -208,39 +195,28 @@ const NewArrival = () => {
   return (
     <Section ref={ref} id="fixed-target" className="new-arrival">
       <Overlay />
-      <Title
-        data-scroll
-        data-scroll-speed="-2"
-        data-scroll-direction="horizontal"
-      >
+      <Title data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">
         Our Services
       </Title>
-
-      <LeftText data-scroll data-scroll-speed="-4">
-        Personal & Family Stories:<br />
-        Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones.<br />
-        Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters.
-        <br /><br />
-        Event Narratives:<br />
-        Covers: Weddings, concerts, corporate events, parties, celebrations.<br />
-        Storytelling Angle: Documenting the unfolding drama, joy, and key moments of significant occasions.
-      </LeftText>
-
       <Container ref={ScrollingRef}>
         <Photos img={img1} name="Personal & Family Stories" />
         <Photos img={img2} name="Event Narratives" />
         <Photos img={img3} name="Brand & Commercial Tales" />
         <Photos img={img4} name="Specialized Visual Journeys" />
       </Container>
-
       <Text data-scroll data-scroll-speed="-4">
+        Personal & Family Stories:<br />
+        Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones.<br />
+        Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters.
+        <br /><br />
+        Event Narratives:<br />
+        Covers: Weddings, concerts, corporate events, parties, celebrations.<br />
+        <br /><br />
         Brand & Commercial Tales:<br />
         Covers: Product photography, corporate photography (staff, premises), real estate, campaigns, advertisements.<br />
-        Storytelling Angle: Building compelling brand identities and showcasing offerings through visual narratives.
         <br /><br />
         Specialized Visual Journeys:<br />
         Covers: Outdoor/scenery, specific artistic projects, unique indoor spaces, and potentially videography if you want to keep it as a distinct sub-category here.<br />
-        Storytelling Angle: Exploring unique themes, environments, or complex visual projects that tell a specific, often immersive, story.
       </Text>
     </Section>
   );

@@ -40,9 +40,9 @@ const Title = styled.h1`
   text-shadow: 1px 1px 1px ${(props) => props.theme.body};
 
   position: absolute;
-  top: 1rem; /* The main title position */
+  top: 1rem;
   left: 5%;
-  z-index: 11; /* Ensures it's on top */
+  z-index: 11;
 
   @media (max-width: 64em) {
     font-size: ${(props) => props.theme.fontxxl};
@@ -58,9 +58,9 @@ const Left = styled.div`
   color: ${(props) => props.theme.text};
 
   min-height: 100vh;
-  z-index: 10; /* Slightly lower than title, but fixed position */
+  z-index: 10;
 
-  position: fixed; /* This makes the text content stay on the left as you scroll */
+  position: fixed;
   left: 0;
   display: flex;
   justify-content: center;
@@ -71,13 +71,11 @@ const Left = styled.div`
     font-weight: 300;
     width: 80%;
     margin: 0 auto;
-    padding-top: 5rem; /* <<<--- ADDED THIS LINE */
   }
 
   @media (max-width: 64em) {
     p {
       font-size: ${(props) => props.theme.fontmd};
-      padding-top: 2rem; /* Adjust for smaller screens if needed */
     }
   }
 
@@ -85,13 +83,11 @@ const Left = styled.div`
     width: 40%;
     p {
       font-size: ${(props) => props.theme.fontsm};
-      padding-top: 1rem; /* Further adjustment for smaller screens */
     }
   }
   @media (max-width: 30em) {
     p {
       font-size: ${(props) => props.theme.fontxs};
-      padding-top: 0.5rem; /* And for very small screens */
     }
   }
 `;

@@ -107,7 +107,7 @@ const Marquee = () => {
             data-scroll-speed="-4"
             data-scroll-target="#direction"
           >
-            a deep emotion,
+            under-dressed
           </span>
         </Banner>
         <Banner data-scroll data-scroll-speed="6" data-scroll-target="#direction">
@@ -117,7 +117,7 @@ const Marquee = () => {
             data-scroll-speed="6"
             data-scroll-target="#direction"
           >
-            through our skilled eye, a visual art.
+            with a Little Black Dress.
           </span>
         </Banner>
       </Container>
