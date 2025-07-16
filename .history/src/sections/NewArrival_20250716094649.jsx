@@ -215,12 +215,13 @@ const NewArrival = () => {
         Our Services
       </Title>
 
+      {/* Removed data-scroll attributes to make this text stagnant when pinned */}
       <LeftText>
-        <strong>Personal & Family Stories:</strong><br />
+        Personal & Family Stories:<br />
         Covers: Individual portraits, headshots, family photography, maternity, newborn, personal milestones.<br />
         Storytelling Angle: Capturing personal journeys, connections, and intimate life chapters.
         <br /><br />
-        <strong>Event Narratives:</strong><br />
+        Event Narratives:<br />
         Covers: Weddings, concerts, corporate events, parties, celebrations.<br />
         Storytelling Angle: Documenting the unfolding drama, joy, and key moments of significant occasions.
       </LeftText>
@@ -232,12 +233,13 @@ const NewArrival = () => {
         <Photos img={img4} name="Specialized Visual Journeys" />
       </Container>
 
+      {/* Removed data-scroll attributes to make this text stagnant when pinned */}
       <Text>
-        <strong>Brand & Commercial Tales:</strong><br />
+        Brand & Commercial Tales:<br />
         Covers: Product photography, corporate photography (staff, premises), real estate, campaigns, advertisements.<br />
         Storytelling Angle: Building compelling brand identities and showcasing offerings through visual narratives.
         <br /><br />
-        <strong>Specialized Visual Journeys:</strong><br />
+        Specialized Visual Journeys:<br />
         Covers: Outdoor/scenery, specific artistic projects, unique indoor spaces.<br />
         Storytelling Angle: Exploring unique themes, environments, or complex visual projects that tell a specific, often immersive, story.
       </Text>
