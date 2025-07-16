@@ -148,7 +148,7 @@ const Footer = () => {
       >
         <ul>
           <li aria-hidden="true" onClick={() => handleScroll("#home")}>
-            Home
+            home
           </li>
           <li aria-hidden="true" onClick={() => handleScroll(".about")}>
             About Us

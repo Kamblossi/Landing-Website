@@ -148,7 +148,7 @@ const Footer = () => {
       >
         <ul>
           <li aria-hidden="true" onClick={() => handleScroll("#home")}>
-            Home
+            home
           </li>
           <li aria-hidden="true" onClick={() => handleScroll(".about")}>
             About Us
@@ -157,7 +157,7 @@ const Footer = () => {
             Our Works
           </li>
           <li aria-hidden="true" onClick={() => handleScroll(".new-arrival")}>
-            Services
+            new arrival
           </li>
           <li>
             <a href="https://google.com" target={"_blank"} rel="noreferrer">

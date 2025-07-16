@@ -148,16 +148,16 @@ const Footer = () => {
       >
         <ul>
           <li aria-hidden="true" onClick={() => handleScroll("#home")}>
-            Home
+            home
           </li>
           <li aria-hidden="true" onClick={() => handleScroll(".about")}>
             About Us
           </li>
           <li aria-hidden="true" onClick={() => handleScroll("#shop")}>
-            Our Works
+            shop
           </li>
           <li aria-hidden="true" onClick={() => handleScroll(".new-arrival")}>
-            Services
+            new arrival
           </li>
           <li>
             <a href="https://google.com" target={"_blank"} rel="noreferrer">
